@@ -1,0 +1,119 @@
+/* General Styles */
+body {
+    background-color: grey;
+    color: black;
+    margin: 0;
+    padding: 0;
+    transition: background 0.5s, color 0.5s;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideDown 1s ease-in-out;
+    transition: background 0.5s;
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 15px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* Dark Mode Navigation */
+body.dark-mode nav ul li a {
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    display: flex;
+    align-items: top;
+    padding-top: 10%;
+    text-align: left; /* Align text to the left */
+    padding-left: 2%; /* Move content slightly to the left */
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Hero Text */
+.hero-content {
+    position: absolute;
+    top: 15%; /* Move text closer to the top */
+    left: 20%;
+    transform: translateX(-50%);
+    text-align: center; /* Center text */
+    width: 100%;
+}
+
+.hero-content h2 {
+    font-size: 40px;
+    color: rgb(200, 200, 200); /* Whitish Gray */
+}
+
+
+
+
+/* Prevent scrolling */
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Hero Section Fullscreen */
+.hero {
+    height: 100vh;  /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: url('image/final.jpg') no-repeat center center/cover;
+    position: relative;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
