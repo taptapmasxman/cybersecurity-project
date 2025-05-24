@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberinfo - Security Testing</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <header>
+        <h1>Cyberinfo</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#help">Help</a></li>
+                <li><a href="/login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="submitLogin(event)">
+                <input type="text" id="username" placeholder="Username" required><br><br>
+                <input type="password" id="password" placeholder="Password" required><br><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h2>Cyber Shield <br> Implementing Effective <br> Cybersecurity Measures</h2>
+
+        <!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h2>Cyber Shield <br> Implementing Effective <br> Cybersecurity Measures</h2>
+
+        <!-- 🔹 Code Button -->
+        <button id="codeButton">View Code</button>
+    </div>
+</section>
+    <!-- Updated About Section -->
+    <section id="about" class="about-section">
+        <div class="about-heading">
+            ABOUT US
+        </div>
+
+        <div class="profiles">
+            <div class="profile">
+                <p class="bio">
+                    <strong>Tanisha</strong> is a final-year BCA student at Ramaiah Institute of Business Studies. Passionate about cybersecurity, she has completed internships in the domain and actively explores new challenges in the field. With a strong foundation in ethical hacking and network security, Tanisha aims to make an impact in the cybersecurity landscape.
+                </p>
+            </div>
+
+            <div class="profile">
+                <p class="bio">
+                    <strong>Praveen</strong> is a BCA 6th-semester student at Ramaiah Institute of Business Studies, specializing in cybersecurity. With internship experience in the field, he constantly works on improving his skills and gaining deeper insights into ethical hacking and cyber defense. Praveen aspires to contribute to the industry by leveraging his expertise in security solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+				
+    <!-- Help Section -->
+    <section id="help" class="help-section">
+        <div class="help-content">
+            <h2>Help & Support</h2>
+            <p>If you need assistance with cybersecurity measures, our support team is here to help. Contact us anytime for guidance.</p>
+        </div>
+    </section>
+
+    <script>
+        function submitLogin(event) {
+            event.preventDefault(); 
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            })
+            .then(res => res.json())
+            .then(data => {
+                alert(data.message);
+                closeLogin();
+            })
+            .catch(err => console.error('Error:', err));
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

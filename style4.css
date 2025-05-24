@@ -1,16 +1,10 @@
-/* General Styles */
 body {
-    background-color: grey;
-    color: black;
+    background-color: black;
+    color: white;
     margin: 0;
     padding: 0;
     transition: background 0.5s, color 0.5s;
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: black;
-    color: white;
+    scroll-behavior: smooth; /* Enables smooth scrolling */
 }
 
 /* Header */
@@ -38,56 +32,16 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: black;
+    color: white;
     padding: 10px 15px;
     font-size: 18px;
     font-weight: bold;
     transition: color 0.3s;
 }
 
-/* Dark Mode Navigation */
-body.dark-mode nav ul li a {
-    color: white;
-}
-
 /* Hero Section */
 .hero {
-    height: 90vh;
-    display: flex;
-    align-items: top;
-    padding-top: 10%;
-    text-align: left; /* Align text to the left */
-    padding-left: 2%; /* Move content slightly to the left */
-    animation: fadeIn 2s ease-in-out;
-}
-
-/* Hero Text */
-.hero-content {
-    position: absolute;
-    top: 15%; /* Move text closer to the top */
-    left: 20%;
-    transform: translateX(-50%);
-    text-align: center; /* Center text */
-    width: 100%;
-}
-
-.hero-content h2 {
-    font-size: 40px;
-    color: rgb(200, 200, 200); /* Whitish Gray */
-}
-
-
-
-
-/* Prevent scrolling */
-html, body {
-    height: 100%;
-    overflow: hidden;
-}
-
-/* Hero Section Fullscreen */
-.hero {
-    height: 100vh;  /* Full viewport height */
+    height: 87vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,6 +49,97 @@ html, body {
     color: white;
     background: url('image/final.jpg') no-repeat center center/cover;
     position: relative;
+}
+
+/* Hero Text */
+.hero-content {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+.hero-content h2 {
+    font-size: 40px;
+    color: rgb(200, 200, 200);
+}
+
+/* About Section */
+.about-heading {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    padding: 20px;
+    color: white;
+    background: linear-gradient(135deg, #0d47a1, #00acc1);
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: fit-content;
+    margin: 0 auto 50px auto;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.bio {
+    font-size: 18px;
+    line-height: 1.8;
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    transition: background 0.5s ease-in-out;
+}
+
+.tanisha {
+    background: linear-gradient(135deg, #007bff, #00d4ff);
+}
+
+.praveen {
+    background: linear-gradient(135deg, #8e44ad, #c0392b);
+}
+
+.site-info {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+}
+
+.bio:hover {
+    background: linear-gradient(135deg, #ff6f61, #ffb400, #14a800, #009fff, #8a2be2);
+    background-size: 400% 400%;
+    animation: colorShift 3s infinite alternate ease-in-out;
+}
+
+.site-info:hover {
+    background: linear-gradient(135deg, #ff6f61, #ffb400, #14a800, #009fff, #8a2be2);
+    background-size: 500% 500%;
+    animation: siteColorShift 5s infinite alternate ease-in-out;
+}
+
+@keyframes colorShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes siteColorShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* Enable Scrolling */
+html, body {
+    height: 100%;
+    overflow-x: hidden; /* Only hide horizontal scrolling */
 }
 
 /* Animations */
@@ -117,3 +162,134 @@ html, body {
         opacity: 1;
     }
 }
+
+html, body {
+    height: auto; /* Allow full page height */
+    overflow-x: hidden; /* Only hide horizontal scrolling */
+    scroll-behavior: smooth; /* Ensures smooth scrolling */
+}
+
+.about-section {
+    padding: 60px 20px;  /* Reduce padding to move content up */
+    scroll-margin-top: 100px; /* Ensure smooth scrolling with navbar */
+    background-color: #222;
+    color: white;
+    text-align: center;
+    min-height: 87vh;  /* Adjust height to crop the background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Help Section */
+.help-section {
+    height: 87vh;
+    background-color: #000000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+}
+
+.help-content {
+    max-width: 800px;
+    font-size: 20px;
+    line-height: 1.5;
+}
+/* Modal Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Black with transparency */
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #222;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 300px;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Form Input Styling */
+#loginForm input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+#loginForm button {
+    padding: 10px 20px;
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+}
+
+#loginForm button:hover {
+    background-color: #ffcc00;
+}
+/* Fade-in and Zoom Animation */
+@keyframes fadeZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Apply Animation to Modal Content */
+.modal-content {
+    background-color: #222;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 300px;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    animation: fadeZoom 0.5s ease forwards; /* 👈 Added this */
+}
+/* Button Styling */
+#codeButton {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#codeButton:hover {
+    background-color: #0056b3;
+}
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberinfo - Security Testing</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <header>
+        <h1>Cyberinfo</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#help">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Cyber Shield <br>
+                Implementing Effective<br> 
+                Cybersecurity Measures</h2>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2>About Cyberinfo</h2>
+            <p>Cyberinfo is dedicated to providing top-tier cybersecurity solutions to protect individuals and businesses from online threats. Our mission is to enhance digital security awareness and implement robust security measures.</p>
+        </div>
+    </section>
+
+    <!-- Help Section -->
+    <section id="help" class="help-section">
+        <div class="help-content">
+            <h2>Help & Support</h2>
+            <p>If you need assistance with cybersecurity measures, our support team is here to help. Contact us anytime for guidance.</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+/* General Styles */
+body {
+    background-color: grey;
+    color: black;
+    margin: 0;
+    padding: 0;
+    transition: background 0.5s, color 0.5s;
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideDown 1s ease-in-out;
+    transition: background 0.5s;
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 15px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* Dark Mode Navigation */
+body.dark-mode nav ul li a {
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: url('image/final.jpg') no-repeat center center/cover;
+    position: relative;
+}
+
+/* Hero Text */
+.hero-content {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+.hero-content h2 {
+    font-size: 40px;
+    color: rgb(200, 200, 200);
+}
+
+/* About Section */
+.about-section {
+    height: 100vh;
+    background-color: #222;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+}
+
+.about-content {
+    max-width: 800px;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* Enable Scrolling */
+html, body {
+    height: 100%;
+    overflow-x: hidden; /* Only hide horizontal scrolling */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+html, body {
+    height: auto; /* Allow full page height */
+    overflow-x: hidden; /* Only hide horizontal scrolling */
+    scroll-behavior: smooth; /* Ensures smooth scrolling */
+}
+
+.about-section {
+    padding: 60px 20px;  /* Reduce padding to move content up */
+    scroll-margin-top: 100px; /* Ensure smooth scrolling with navbar */
+    background-color: #222;
+    color: white;
+    text-align: center;
+    min-height: 60vh;  /* Adjust height to crop the background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* Help Section */
+.help-section {
+    height: 100vh;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+}
+
+.help-content {
+    max-width: 800px;
+    font-size: 20px;
+    line-height: 1.5;
+}

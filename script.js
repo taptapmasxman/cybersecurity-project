@@ -1,57 +1,70 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const testButton = document.getElementById("testButton");
 
-    testButton.addEventListener("click", function () {
-        testButton.style.transform = "scale(0.9)";
-        testButton.style.backgroundColor = "#ffcc00";
-
-        fetch("http://localhost:3000/run-test", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ action: "start_security_test" })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data.message);
-            alert("Security test started and logged on the server!");
-        })
-        .catch(error => console.error("Error:", error));
-
-        setTimeout(() => {
-            testButton.style.transform = "scale(1)";
-            testButton.style.backgroundColor = "#007BFF";
-        }, 200);
-    });
-});
-document.addEventListener("DOMContentLoaded", function () {
-    const toggleButton = document.getElementById("darkModeToggle");
-    const body = document.body;
-
-    // Load Dark Mode Preference
-    if (localStorage.getItem("dark-mode") === "enabled") {
-        body.classList.add("dark-mode");
-        toggleButton.innerText = "☀️";
-    }
-
-    // Toggle Dark Mode
-    toggleButton.addEventListener("click", function () {
-        body.classList.toggle("dark-mode");
-
-        // Save Mode to Local Storage
-        if (body.classList.contains("dark-mode")) {
-            localStorage.setItem("dark-mode", "enabled");
-            toggleButton.innerText = "☀️"; // Change to Sun Icon
-        } else {
-            localStorage.setItem("dark-mode", "disabled");
-            toggleButton.innerText = "🌙"; // Change to Moon Icon
-        }
-    });
-});
+// Hero Background Animation
 document.addEventListener("mousemove", function (e) {
     const hero = document.querySelector(".hero");
-    const moveX = (e.clientX / window.innerWidth - 0.5) * 30;  // Adjust sensitivity
-    const moveY = (e.clientY / window.innerHeight - 0.5) * 30;
+    if (hero) {
+        const moveX = (e.clientX / window.innerWidth - 1) * 30;
+        const moveY = (e.clientY / window.innerHeight - 1) * 30;
+        hero.style.backgroundPosition = `${50 + moveX}% ${50 + moveY}%`;
+    }
+});
 
-    hero.style.backgroundPosition = `${50 + moveX}% ${50 + moveY}%`;
+// Smooth Scroll for About Section
+document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll("nav ul li a");
+
+    links.forEach(link => {
+        link.addEventListener("click", function (event) {
+            const targetId = this.getAttribute("href").substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                event.preventDefault();
+                window.scrollTo({
+                    top: targetSection.offsetTop - 60, // Adjust to avoid header overlap
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+});
+// script.js
+const loginLink = document.querySelector('a[href="/login.html"]');
+const loginModal = document.getElementById('loginModal');
+const closeBtn = document.querySelector('.close');
+
+// Open modal when login link clicked
+loginLink.addEventListener('click', function (event) {
+    event.preventDefault();
+    loginModal.style.display = 'block';
+});
+
+// Close modal when 'X' clicked
+closeBtn.addEventListener('click', function () {
+    loginModal.style.display = 'none';
+});
+
+// Close modal when clicking outside the modal box
+window.addEventListener('click', function (event) {
+    if (event.target == loginModal) {
+        loginModal.style.display = 'none';
+    }
+});
+
+// Handle form submit (POST request)
+document.getElementById('loginForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const username = this.username.value;
+    const password = this.password.value;
+
+    const response = await fetch('/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+    });
+
+    const result = await response.text();
+    alert(result);
+    loginModal.style.display = 'none';
 });
 
